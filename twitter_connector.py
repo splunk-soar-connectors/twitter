@@ -15,15 +15,15 @@
 #
 #
 # Phantom App imports
-import phantom.app as phantom
-from phantom.base_connector import BaseConnector
-from phantom.action_result import ActionResult
+import datetime
+import json
 
+import phantom.app as phantom
 # Usage of the consts file is recommended
 # from twitter_consts import *
 import requests
-import json
-import datetime
+from phantom.action_result import ActionResult
+from phantom.base_connector import BaseConnector
 
 # Library information: https://pypi.org/project/twitter/
 from twitter import *
@@ -189,8 +189,9 @@ class TwitterConnector(BaseConnector):
 
 if __name__ == '__main__':
 
-    import pudb
     import argparse
+
+    import pudb
 
     pudb.set_trace()
 
