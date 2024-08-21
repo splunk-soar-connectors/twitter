@@ -2,15 +2,15 @@
 # Twitter
 
 Publisher: Splunk  
-Connector Version: 1\.0\.2  
+Connector Version: 1.0.4  
 Product Vendor: Twitter  
 Product Name: Twitter  
-Product Version Supported (regex): "\.\*"  
-Minimum Product Version: 4\.2\.7532  
+Product Version Supported (regex): ".\*"  
+Minimum Product Version: 4.2.7532  
 
 This app integrates with Twitter to perform a search action
 
-[comment]: # " File: readme.md"
+[comment]: # " File: README.md"
 [comment]: # "  Copyright (c) 2019 Splunk Inc."
 [comment]: # ""
 [comment]: # "  Licensed under Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.txt)"
@@ -31,9 +31,9 @@ The below configuration variables are required for this Connector to operate.  T
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
 **token** |  required  | string | Twitter account token
-**token\_secret** |  required  | password | Twitter account token secret
-**consumer\_key** |  required  | string | Twitter account consumer key
-**consumer\_secret** |  required  | password | Twitter account consumer secret
+**token_secret** |  required  | password | Twitter account token secret
+**consumer_key** |  required  | string | Twitter account consumer key
+**consumer_secret** |  required  | password | Twitter account consumer secret
 
 ### Supported Actions  
 [test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration  
@@ -63,17 +63,22 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **query** |  required  | Text to search | string | 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.status | string | 
-action\_result\.parameter\.query | string | 
-action\_result\.data\.\*\.\*\.Tweet Link | string | 
-action\_result\.data\.\*\.\*\.hashtags | string | 
-action\_result\.data\.\*\.\*\.retweeted status | string | 
-action\_result\.data\.\*\.\*\.tweet | string | 
-action\_result\.data\.\*\.\*\.urls | string |  `url` 
-action\_result\.data\.\*\.\*\.username | string | 
-action\_result\.summary\.Found Tweets | numeric | 
-action\_result\.message | string | 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric | 
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.status | string |  |   success  failed 
+action_result.parameter.query | string |  |   test.com 
+action_result.data.\*.\*.Tweet Link | string |  |   https://twitter.com/username/status/1106343825230962689 
+action_result.data.\*.\*.hashtags | string |  |   demo 
+action_result.data.\*.\*.retweeted status | string |  |   ⚠️ WARNING ⚠️
+Unauthenticated RCE Detected
+
+Source IP: 122.122.122.122 (🇺🇸)
+Recon Scan Type: ZMap
+Exploit Target: Li… https://test.co/kVXF2ZvmCr 
+action_result.data.\*.\*.tweet | string |  |   RT @bad_packets: ⚠️ WARNING ⚠️Unauthenticated RCE DetectedSource IP: 122.122.122.122 (🇺🇸)Recon Scan Type: ZMapExploit Target: Testsys r… 
+action_result.data.\*.\*.urls | string |  `url`  |   https://twitter.com/i/web/status/1106325213497573376 
+action_result.data.\*.\*.username | string |  |   user_name 
+action_result.summary.Found Tweets | numeric |  |   14 
+action_result.message | string |  |   Found tweets: 14 
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1 
